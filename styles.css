@@ -1,0 +1,29 @@
+*{
+    box-sizing: border-box;
+}
+
+#calc{
+    border:1px solid black;
+    margin:8px;
+    color:black;
+    width:500px;
+    margin:0px auto;
+    height:800px;
+    background-color: #1e1c1f;
+}
+
+#display{
+    border:1px solid black;
+    background-color:pink;
+    height:20%;
+    margin:16px 16px;
+    background-color: #a2af77;
+    margin-bottom:24px;
+}
+
+#buttons{
+    height:70%;
+    margin:0px 16px;
+    border:1px solid red;
+
+}
