@@ -17,14 +17,13 @@ function divide(x,y){
 const ctner = document.querySelector("#ctner");
 
 ctner.setAttribute("style",
-    "border:1px solid cyan;"+
     "height:75%;"+
     "display:flex;"+
     "flex-direction:column;");
 for(let i=1;i<=5;i++)
 {
     let div = document.createElement("div");
-    div.setAttribute("style","height:20%;width:100%;display:flex;justify-content:space-evenly;align-items:center;border:3px solid blue;");
+    div.setAttribute("style","height:20%;width:100%;display:flex;justify-content:space-evenly;align-items:center;");
     div.setAttribute("class",`row${i}`);
     ctner.appendChild(div);
 }
@@ -40,7 +39,7 @@ const row5 = document.querySelector(".row5");
 for(let i=0;i<2;i++)
 {
     let div = document.createElement("div");
-    div.setAttribute("style","height:100%;width:50%;border:2px solid yellow;display:flex;justify-content:space-around;align-items:center;");
+    div.setAttribute("style","height:100%;width:50%;display:flex;justify-content:space-around;align-items:center;");
     i==0?div.setAttribute("class","special"):div.setAttribute("class","operations");
 
     row1.appendChild(div);
@@ -191,7 +190,7 @@ for(let i=1;i<=4;i++)
 for(let i=0;i<2;i++)
 {
     let div = document.createElement("div");
-    div.setAttribute("style","height:100%;width:50%;border:2px solid yellow;display:flex;justify-content:space-around;align-items:center;");
+    div.setAttribute("style","height:100%;width:50%;display:flex;justify-content:space-around;align-items:center;");
     i==0?div.setAttribute("class","numbers"):div.setAttribute("class","special2");
     
     row5.appendChild(div);
@@ -232,4 +231,26 @@ for(let i=0;i<1;i++)
 
     button.textContent="0";
     numbers.appendChild(button);
+}
+
+//creating variables for number1, operator, number2
+
+let number1;
+let operator;
+let number2;
+
+function operate(number1,operator,number2)
+{
+    switch(operator)
+    {
+        case '+':
+            return number1 + number2;
+            break;
+        case '-':
+            return number1 - number2;
+        case '*':
+            return number1*number2;
+        case '/':
+            return number1/number2;
+    }   
 }
