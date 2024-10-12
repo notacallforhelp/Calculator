@@ -24,17 +24,19 @@ ctner.setAttribute("style",
 for(let i=1;i<=5;i++)
 {
     let div = document.createElement("div");
-    div.setAttribute("style","height:20%;width:100%;display:flex;justify-content:space-evenly;border:3px solid blue;");
+    div.setAttribute("style","height:20%;width:100%;display:flex;justify-content:space-evenly;align-items:center;border:3px solid blue;");
     div.setAttribute("class",`row${i}`);
     ctner.appendChild(div);
 }
-/*let div = document.createElement("div");
-div.setAttribute("style","height:20%;width:100%;display:flex;justify-content:space-evenly;border:3px solid blue;");
-div.setAttribute("class","row1");
-ctner.appendChild(div);*/
 
 const row1 = document.querySelector(".row1");
+const row2 = document.querySelector(".row2");
+const row3 = document.querySelector(".row3");
+const row4 = document.querySelector(".row4");
+const row5 = document.querySelector(".row5");
 
+
+//row 1
 for(let i=0;i<2;i++)
 {
     let div = document.createElement("div");
@@ -80,21 +82,47 @@ for(let i=0;i<2;i++)
     operations.appendChild(button);
 }
 
-/*let div2 = document.createElement("div");
-div2.setAttribute("style","height:60%;width:100%;display:flex;justify-content:space-evenly;border:3px solid blue;");
-div2.setAttribute("class","row2");
-ctner.appendChild(div2);*/
+//row 2
 
-const row2 = document.querySelector(".row2");
+for(let i=7;i<=10;i++)
+{
+    let button = document.createElement("button");
+    if(i!=10)
+    {
+        button.setAttribute("style",
+            "background-color:#3049b3;"+
+            "padding:32px;"+
+            "height:50px;"+
+            "margin:12px;"+
+            "border-radius:8px;"+
+            "color:white;"+
+            "font-weight:bolder;"+
+            "text-align:center;"+
+            "line-height:10%;");
+    }
+    else
+    {
+        button.setAttribute("style",
+            "background-color:#ffa53f;"+
+            "padding:32px;"+
+            "height:50px;"+
+            "border-radius:8px;"+
+            "color:white;"+
+            "font-weight:bolder;"+
+            "text-align:center;"+
+            "line-height:10%;");
+    }
+
+    i==10? button.textContent="/":button.textContent=`${i}`;
+    row2.appendChild(button);
+}
+
+//row 3
 
 
-/*let div5 = document.createElement("div");
-div5.setAttribute("style","height:20%;width:100%;display:flex;align-items:center;justify-content:space-evenly;border:3px solid pink;");
-div5.setAttribute("class","row5");
-ctner.appendChild(div5);*/
+// row 4
 
-const row5 = document.querySelector(".row5");
-
+//row 5
 for(let i=0;i<2;i++)
 {
     let div = document.createElement("div");
