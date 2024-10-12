@@ -119,8 +119,73 @@ for(let i=7;i<=10;i++)
 
 //row 3
 
+for(let i=4;i<=7;i++)
+{
+    let button = document.createElement("button");
+    if(i!=7)
+    {
+        button.setAttribute("style",
+            "background-color:#3049b3;"+
+            "padding:32px;"+
+            "height:50px;"+
+            "margin:12px;"+
+            "border-radius:8px;"+
+            "color:white;"+
+            "font-weight:bolder;"+
+            "text-align:center;"+
+            "line-height:10%;");
+    }
+    else
+    {
+        button.setAttribute("style",
+            "background-color:#ffa53f;"+
+            "padding:32px;"+
+            "height:50px;"+
+            "border-radius:8px;"+
+            "color:white;"+
+            "font-weight:bolder;"+
+            "text-align:center;"+
+            "line-height:10%;");
+    }
+
+    i==7? button.textContent="+":button.textContent=`${i}`;
+    row3.appendChild(button);
+}
 
 // row 4
+
+for(let i=1;i<=4;i++)
+{
+    let button = document.createElement("button");
+    if(i!=4)
+    {
+        button.setAttribute("style",
+            "background-color:#3049b3;"+
+            "padding:32px;"+
+            "height:50px;"+
+            "margin:12px;"+
+            "border-radius:8px;"+
+            "color:white;"+
+            "font-weight:bolder;"+
+            "text-align:center;"+
+            "line-height:10%;");
+    }
+    else
+    {
+        button.setAttribute("style",
+            "background-color:#ffa53f;"+
+            "padding:32px;"+
+            "height:50px;"+
+            "border-radius:8px;"+
+            "color:white;"+
+            "font-weight:bolder;"+
+            "text-align:center;"+
+            "line-height:10%;");
+    }
+
+    i==4? button.textContent="-":button.textContent=`${i}`;
+    row4.appendChild(button);
+}
 
 //row 5
 for(let i=0;i<2;i++)
