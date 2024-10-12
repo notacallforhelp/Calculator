@@ -21,11 +21,17 @@ ctner.setAttribute("style",
     "height:75%;"+
     "display:flex;"+
     "flex-direction:column;");
-
-let div = document.createElement("div");
+for(let i=1;i<=5;i++)
+{
+    let div = document.createElement("div");
+    div.setAttribute("style","height:20%;width:100%;display:flex;justify-content:space-evenly;border:3px solid blue;");
+    div.setAttribute("class",`row${i}`);
+    ctner.appendChild(div);
+}
+/*let div = document.createElement("div");
 div.setAttribute("style","height:20%;width:100%;display:flex;justify-content:space-evenly;border:3px solid blue;");
 div.setAttribute("class","row1");
-ctner.appendChild(div);
+ctner.appendChild(div);*/
 
 const row1 = document.querySelector(".row1");
 
@@ -74,19 +80,20 @@ for(let i=0;i<2;i++)
     operations.appendChild(button);
 }
 
-let div2 = document.createElement("div");
+/*let div2 = document.createElement("div");
 div2.setAttribute("style","height:60%;width:100%;display:flex;justify-content:space-evenly;border:3px solid blue;");
 div2.setAttribute("class","row2");
-ctner.appendChild(div2);
+ctner.appendChild(div2);*/
 
 const row2 = document.querySelector(".row2");
 
-let div3 = document.createElement("div");
-div3.setAttribute("style","height:20%;width:100%;display:flex;align-items:center;justify-content:space-evenly;border:3px solid pink;");
-div3.setAttribute("class","row3");
-ctner.appendChild(div3);
 
-const row3 = document.querySelector(".row3");
+/*let div5 = document.createElement("div");
+div5.setAttribute("style","height:20%;width:100%;display:flex;align-items:center;justify-content:space-evenly;border:3px solid pink;");
+div5.setAttribute("class","row5");
+ctner.appendChild(div5);*/
+
+const row5 = document.querySelector(".row5");
 
 for(let i=0;i<2;i++)
 {
@@ -94,7 +101,7 @@ for(let i=0;i<2;i++)
     div.setAttribute("style","height:100%;width:50%;border:2px solid yellow;display:flex;justify-content:space-around;align-items:center;");
     i==0?div.setAttribute("class","numbers"):div.setAttribute("class","special2");
     
-    row3.appendChild(div);
+    row5.appendChild(div);
 }
 
 const special2 = document.querySelector(".special2");
