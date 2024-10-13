@@ -8,6 +8,10 @@ body{
     background-color: blanchedalmond;
 }
 
+button{
+    border: 1px solid white;
+}
+
 h1{
     text-align: center;
     text-decoration: underline;
