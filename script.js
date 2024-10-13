@@ -473,7 +473,7 @@ body.addEventListener('keydown',(event)=>{
         event.preventDefault();
     }
     let pressedvar = event.key;
-    console.log(event);
+    //console.log(event);
 
     switch(pressedvar)
     {
