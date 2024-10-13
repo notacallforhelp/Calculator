@@ -377,19 +377,32 @@ ctner.addEventListener('click',(event)=>{
         }
         if(decicheck==false)
         {
+            if(accumulator<0)
+            {
+                numberHere = -1*numberHere;
+            }
             accumulator = accumulator*10 + numberHere;
             decipart=accumulator;
             display.textContent = accumulator;
         }
         else
         {
-            if(Math.floor(accumulator)==accumulator)
+            let placeholder = Math.abs(accumulator);
+            if(Math.floor(placeholder)==placeholder)
             {
-                decipart=accumulator;
+                decipart=placeholder;
             }
             decipart = decipart*10+numberHere;
-            accumulator = decipart/(10**multiplier);
+            placeholder = decipart/(10**multiplier);
             ++multiplier;
+            if(accumulator<0)
+            {
+                accumulator = -1*placeholder;
+            }
+            else
+            {
+                accumulator=placeholder;
+            }
             if(numberHere==0)
             {
                 display.textContent+='0';
@@ -526,19 +539,32 @@ body.addEventListener('keydown',(event)=>{
         }
         if(decicheck==false)
         {
+            if(accumulator<0)
+            {
+                numberHere = -1*numberHere;
+            }
             accumulator = accumulator*10 + numberHere;
             decipart=accumulator;
             display.textContent = accumulator;
         }
         else
         {
-            if(Math.floor(accumulator)==accumulator)
+            let placeholder = Math.abs(accumulator);
+            if(Math.floor(placeholder)==placeholder)
             {
-                decipart=accumulator;
+                decipart=placeholder;
             }
             decipart = decipart*10+numberHere;
-            accumulator = decipart/(10**multiplier);
+            placeholder = decipart/(10**multiplier);
             ++multiplier;
+            if(accumulator<0)
+            {
+                accumulator = -1*placeholder;
+            }
+            else
+            {
+                accumulator=placeholder;
+            }
             if(numberHere==0)
             {
                 display.textContent+='0';
