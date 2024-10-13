@@ -448,6 +448,7 @@ ctner.addEventListener('click',(event)=>{
                 }
                 decimal.style.backgroundColor="gray";
             }
+            operator=undefined;
             display.textContent=accumulator;
             if(accumulator=="kys")
             {
@@ -457,7 +458,7 @@ ctner.addEventListener('click',(event)=>{
                 multiplier=1;
                 number1=0;
                 number2=0;
-                operator=0;
+                operator=undefined;
             }
         }
     }
@@ -570,6 +571,7 @@ body.addEventListener('keydown',(event)=>{
         {
             accumulator = operate(number1,operator,number2);
             display.textContent=accumulator;
+            operator=undefined;
             if(accumulator==Math.floor(accumulator))
             {
                 decicheck=false;
@@ -598,7 +600,7 @@ body.addEventListener('keydown',(event)=>{
                 multiplier=1;
                 number1=0;
                 number2=0;
-                operator=0;
+                operator=undefined;
             }
         }        
     }
