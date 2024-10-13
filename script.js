@@ -40,7 +40,7 @@ for(let i=0;i<2;i++)
 {
     let div = document.createElement("div");
     div.setAttribute("style","height:100%;width:50%;display:flex;justify-content:space-around;align-items:center;");
-    i==0?div.setAttribute("class","special"):div.setAttribute("class","operations");
+    i==0?div.setAttribute("class","special"):div.setAttribute("class","operationsdiv");
 
     row1.appendChild(div);
 }
@@ -71,7 +71,7 @@ for(let i=0;i<2;i++)
     special.appendChild(button);
 }
 
-const operations = document.querySelector(".operations");
+const operationsdiv = document.querySelector(".operationsdiv");
 for(let i=0;i<2;i++)
 {
     let button = document.createElement("button");
@@ -84,9 +84,11 @@ for(let i=0;i<2;i++)
         "font-weight:bolder;"+
         "text-align:center;"+
         "line-height:10%;");
+    
+    button.setAttribute("class","operations");
 
-    i==0? button.textContent="+/-":button.textContent=" * ";
-    operations.appendChild(button);
+    i==0? button.textContent="+/-":button.textContent="*";
+    operationsdiv.appendChild(button);
 }
 
 //row 2
@@ -229,7 +231,13 @@ for(let i=0;i<2;i++)
         "font-weight:bolder;"+
         "text-align:center;"+
         "line-height:10%;");
-    
+    if(i==1)
+    {
+        button.setAttribute("class","equals");
+    }
+    else{
+        button.setAttribute("class","decimal");
+    }
 
     i==0? button.textContent=" . ":button.textContent=" = ";
     special2.appendChild(button);
@@ -315,7 +323,22 @@ ctner.addEventListener('click',(event)=>{
     {
         let numberHere = +target.textContent;
         accumulator = accumulator*10 + numberHere;
-        display.textContent = accumulator;
+        display.textContent += numberHere;
+    }
+
+    if(target.className=='operations')
+    {
+        number1 = accumulator;
+        accumulator=0;
+        operator = target.textContent;
+        display.textContent += target.textContent;
+    }
+
+    if(target.className=='equals')
+    {
+        number2 = accumulator;
+        accumulator = operate(number1,operator,number2);
+        display.textContent=accumulator;
     }
 });
 
