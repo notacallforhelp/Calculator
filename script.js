@@ -58,6 +58,14 @@ for(let i=0;i<2;i++)
         "font-weight:bolder;"+
         "text-align:center;"+
         "line-height:10%;");
+    
+    if(i==0)
+    {
+        button.setAttribute("class","AC");
+    }
+    else{
+        button.setAttribute("class","C");
+    }
 
     i==0? button.textContent="AC":button.textContent="C";
     special.appendChild(button);
@@ -258,5 +266,27 @@ function operate(number1,operator,number2)
 // display part
 
 const display = document.querySelector("#display");
-
 display.textContent="99";
+
+let accumulator = 99;
+
+// adding AC functionality
+
+special.addEventListener('click',(event)=>{
+    let target = event.target;
+
+    if(target.className=='AC')
+    {
+        display.textContent="";
+        accumulator=0;
+    }
+
+    if(target.className=='C')
+    {
+        let currentstring = display.textContent;
+        let currentStringArray = currentstring.split('');
+        currentStringArray.splice(currentStringArray.length-1,1);
+        display.textContent = currentStringArray.join('');
+        accumulator = Math.floor(accumulator/10);
+    }
+});
