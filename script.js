@@ -330,11 +330,36 @@ special.addEventListener('click',(event)=>{
 
     if(target.className=='C')
     {
-        let currentstring = display.textContent;
-        let currentStringArray = currentstring.split('');
-        currentStringArray.splice(currentStringArray.length-1,1);
-        display.textContent = currentStringArray.join('');
-        accumulator = Math.floor(accumulator/10);
+        if(decicheck==true)
+        {
+            let currentstring = display.textContent;
+            let currentStringArray = currentstring.split('');
+            currentStringArray.splice(currentStringArray.length-1,1);
+            display.textContent = currentStringArray.join('');
+            --multiplier;
+            console.log(multiplier);
+            //accumulator = accumulator.toFixed(multiplier-1);
+            accumulator=accumulator*(10**multiplier);
+            accumulator=Math.floor(accumulator/10);
+            accumulator=accumulator/(10**(multiplier-1));
+            if(multiplier==1)
+            {
+                decicheck=false;
+                decipart=accumulator;
+                let currentstring = display.textContent;
+                let currentStringArray = currentstring.split('');
+                currentStringArray.splice(currentStringArray.length-1,1);
+                display.textContent = currentStringArray.join('');
+            }
+        }
+        else
+        {
+            let currentstring = display.textContent;
+            let currentStringArray = currentstring.split('');
+            currentStringArray.splice(currentStringArray.length-1,1);
+            display.textContent = currentStringArray.join('');
+            accumulator = Math.floor(accumulator/10);
+        }
     }
 });
 
