@@ -383,6 +383,7 @@ ctner.addEventListener('click',(event)=>{
         }
         else
         {
+            decipart=accumulator;
             decipart = decipart*10+numberHere;
             accumulator = decipart/(10**multiplier);
             ++multiplier;
@@ -527,6 +528,7 @@ body.addEventListener('keydown',(event)=>{
         }
         else
         {
+            decipart=accumulator;
             decipart = decipart*10+numberHere;
             accumulator = decipart/(10**multiplier);
             ++multiplier;
