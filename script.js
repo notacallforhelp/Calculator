@@ -302,7 +302,7 @@ function operate(number1,operator,number2)
 // display part
 
 const display = document.querySelector("#display");
-let accumulator = 0;
+let accumulator;
 display.textContent=accumulator;
 let check=false;
 
@@ -345,6 +345,10 @@ ctner.addEventListener('click',(event)=>{
     if(target.className=='numbers')
     {
         let numberHere = +target.textContent;
+        if(accumulator==undefined)
+        {
+            accumulator=0;
+        }
         accumulator = accumulator*10 + numberHere;
         display.textContent = accumulator;
     }
@@ -365,7 +369,7 @@ ctner.addEventListener('click',(event)=>{
             check = true;
             number1 = accumulator;   
         }
-        accumulator=0;
+        accumulator=undefined;
         operator = target.textContent;
         display.textContent += target.textContent;
     }
@@ -374,9 +378,9 @@ ctner.addEventListener('click',(event)=>{
     {
         check=false;
         number2 = accumulator;
-        console.log(number1);
-        console.log(number2);
-        console.log(operator);
+        //console.log(number1);
+        //console.log(number2);
+        //console.log(operator);
         if(number1!=undefined&&number2!=undefined&&operator!=undefined)
         {
             accumulator = operate(number1,operator,number2);
