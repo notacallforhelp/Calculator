@@ -290,6 +290,10 @@ function operate(number1,operator,number2)
             return number1*number2;
             break;
         case '/':
+            if(number2==0)
+            {
+                return "kys";
+            }
             return number1/number2;
             break;
     }   
@@ -298,7 +302,7 @@ function operate(number1,operator,number2)
 // display part
 
 const display = document.querySelector("#display");
-let accumulator = 99;
+let accumulator = 0;
 display.textContent=accumulator;
 let check=false;
 
@@ -312,6 +316,10 @@ special.addEventListener('click',(event)=>{
     {
         display.textContent="";
         accumulator=0;
+        number1=undefined;
+        number2=undefined;
+        operator=undefined;
+        check=false;
     }
 
     if(target.className=='C')
@@ -346,6 +354,11 @@ ctner.addEventListener('click',(event)=>{
         if(check==true)
         {
             number1=operate(number1,operator,accumulator);
+            display.textContent = number1;
+            if(number1=="kys")
+            {
+                number1=0;
+            }
             //console.log(number1);
         }
         else{
@@ -361,8 +374,22 @@ ctner.addEventListener('click',(event)=>{
     {
         check=false;
         number2 = accumulator;
-        accumulator = operate(number1,operator,number2);
-        display.textContent=accumulator;
+        console.log(number1);
+        console.log(number2);
+        console.log(operator);
+        if(number1!=undefined&&number2!=undefined&&operator!=undefined)
+        {
+            accumulator = operate(number1,operator,number2);
+            display.textContent=accumulator;
+            if(accumulator=="kys")
+            {
+                check=false;
+                accumulator=0;
+                number1=0;
+                number2=0;
+                operator=0;
+            }
+        }
     }
 });
 
