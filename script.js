@@ -275,6 +275,7 @@ let number1;
 let operator;
 let number2;
 
+
 function operate(number1,operator,number2)
 {
     switch(operator)
@@ -299,6 +300,7 @@ function operate(number1,operator,number2)
 const display = document.querySelector("#display");
 let accumulator = 99;
 display.textContent=accumulator;
+let check=false;
 
 
 // adding AC and C functionality
@@ -336,12 +338,20 @@ ctner.addEventListener('click',(event)=>{
     {
         let numberHere = +target.textContent;
         accumulator = accumulator*10 + numberHere;
-        display.textContent += numberHere;
+        display.textContent = accumulator;
     }
 
     if(target.className=='operations')
     {
-        number1 = accumulator;
+        if(check==true)
+        {
+            number1=operate(number1,operator,accumulator);
+            //console.log(number1);
+        }
+        else{
+            check = true;
+            number1 = accumulator;   
+        }
         accumulator=0;
         operator = target.textContent;
         display.textContent += target.textContent;
@@ -349,6 +359,7 @@ ctner.addEventListener('click',(event)=>{
 
     if(target.className=='equals')
     {
+        check=false;
         number2 = accumulator;
         accumulator = operate(number1,operator,number2);
         display.textContent=accumulator;
