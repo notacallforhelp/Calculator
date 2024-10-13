@@ -424,14 +424,17 @@ ctner.addEventListener('click',(event)=>{
     if(target.className=='equals')
     {
         check=false;
-        decicheck=false;
-        decipart=0;
-        multiplier=1;
         number2 = accumulator;
-        decimal.style.backgroundColor = '#338525';
         if(number1!=undefined&&number2!=undefined&&operator!=undefined)
         {
             accumulator = operate(number1,operator,number2);
+            if(accumulator==Math.floor(accumulator))
+            {
+                decicheck=false;
+                decipart=0;
+                multiplier=1;
+                decimal.style.backgroundColor = '#338525';
+            }
             display.textContent=accumulator;
             if(accumulator=="kys")
             {
@@ -549,15 +552,18 @@ body.addEventListener('keydown',(event)=>{
     else if(pressedvar==3)
     {
         check=false;
-        decicheck=false;
-        decipart=0;
-        multiplier=1;
         number2 = accumulator;
-        decimal.style.backgroundColor = '#338525';
         if(number1!=undefined&&number2!=undefined&&operator!=undefined)
         {
             accumulator = operate(number1,operator,number2);
             display.textContent=accumulator;
+            if(accumulator==Math.floor(accumulator))
+            {
+                decicheck=false;
+                decipart=0;
+                multiplier=1;
+                decimal.style.backgroundColor = '#338525';
+            }
             if(accumulator=="kys")
             {
                 check=false;
