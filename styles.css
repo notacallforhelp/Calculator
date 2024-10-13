@@ -19,6 +19,11 @@
     height:20%;
     margin:16px 16px;
     margin-bottom:24px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    font-size: 64px;
+    font-family: "DM Sans", sans-serif;
 }
 
 
