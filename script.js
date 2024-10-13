@@ -451,6 +451,10 @@ ctner.addEventListener('click',(event)=>{
 
 const body = document.querySelector('body');
 body.addEventListener('keydown',(event)=>{
+    if(event.key=="+"||event.key=="9"||event.key=="0"||event.key=="Enter")
+    {
+        event.preventDefault();
+    }
     let pressedvar = event.key;
     console.log(event);
 
