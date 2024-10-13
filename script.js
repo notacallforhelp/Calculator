@@ -281,20 +281,20 @@ function operate(number1,operator,number2)
     switch(operator)
     {
         case '+':
-            return (number1 + number2).toFixed(2);
+            return 1*((number1 + number2).toFixed(2));
             break;
         case '-':
-            return (number1 - number2).toFixed(2);
+            return 1*((number1 - number2).toFixed(2));
             break;
         case '*':
-            return (number1*number2).toFixed(2);
+            return 1*((number1*number2).toFixed(2));
             break;
         case '/':
             if(number2==0)
             {
                 return "kys";
             }
-            return (number1/number2).toFixed(2);
+            return 1*((number1/number2).toFixed(2));
             break;
     }   
 }
