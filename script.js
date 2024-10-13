@@ -463,4 +463,181 @@ ctner.addEventListener('click',(event)=>{
     }
 });
 
+//adding keyboard support
 
+const body = document.querySelector('body');
+body.addEventListener('keydown',(event)=>{
+    let pressedvar = event.key;
+    console.log(event);
+
+    switch(pressedvar)
+    {
+        case '0':
+        case '1':
+        case '2':
+        case '3':
+        case '4':
+        case '5':
+        case '6':
+        case '7':
+        case '8':
+        case '9':
+            pressedvar=1;
+            break;
+        case '+':
+        case '-':
+        case '/':
+        case '*':
+            pressedvar=2;
+            break;
+        case '=':
+        case 'Enter':
+            pressedvar=3;
+            break;
+        case 'x':     //adding support for AC
+            pressedvar=4;
+            break;
+        case 'c':       //adding support for C
+            pressedvar=5;
+            break;
+        case '.':
+            pressedvar=6;
+            break;
+        case '!':
+            pressedvar=7;
+            break;
+    }
+    if(pressedvar==1)
+    {
+        let numberHere = +event.key;
+        if(accumulator==undefined)
+        {
+            accumulator=0;
+        }
+        if(decicheck==false)
+        {
+            accumulator = accumulator*10 + numberHere;
+            decipart=accumulator;
+            display.textContent = accumulator;
+        }
+        else
+        {
+            decipart = decipart*10+numberHere;
+            accumulator = decipart/(10**multiplier);
+            ++multiplier;
+            if(numberHere==0)
+            {
+                display.textContent+='0';
+            }
+            else
+            {
+                display.textContent=accumulator;
+            }
+        }
+    }
+    else if(pressedvar==2)
+    {
+        decicheck=false;
+        multiplier=1;
+        decipart=0;
+        decimal.style.backgroundColor = '#338525';
+        if(check==true)
+        {
+            number1=operate(number1,operator,accumulator);
+            display.textContent = number1;
+            if(number1=="kys")
+            {
+                number1=0;
+            }
+        }
+        else{
+            check = true;
+            number1 = accumulator;   
+        }
+        accumulator=undefined;
+        operator = event.key;
+        display.textContent += event.key;        
+    }
+    else if(pressedvar==3)
+    {
+        check=false;
+        decicheck=false;
+        decipart=0;
+        multiplier=1;
+        number2 = accumulator;
+        decimal.style.backgroundColor = '#338525';
+        if(number1!=undefined&&number2!=undefined&&operator!=undefined)
+        {
+            accumulator = operate(number1,operator,number2);
+            display.textContent=accumulator;
+            if(accumulator=="kys")
+            {
+                check=false;
+                accumulator=0;
+                decicheck=false;
+                multiplier=1;
+                number1=0;
+                number2=0;
+                operator=0;
+            }
+        }        
+    }
+    else if(pressedvar==4)
+    {
+        display.textContent="";
+        accumulator=0;
+        number1=undefined;
+        number2=undefined;
+        operator=undefined;
+        check=false;
+        decicheck=false;
+        multiplier=1;
+        decipart=0;
+        decimal.style.backgroundColor = '#338525';
+    }
+    else if(pressedvar==5)
+    {
+        if(decicheck==true)
+        {
+            let currentstring = display.textContent;
+            let currentStringArray = currentstring.split('');
+            currentStringArray.splice(currentStringArray.length-1,1);
+            display.textContent = currentStringArray.join('');
+            --multiplier;
+            //console.log(multiplier);
+            //accumulator = accumulator.toFixed(multiplier-1);
+            accumulator=accumulator*(10**multiplier);
+            accumulator=Math.floor(accumulator/10);
+            accumulator=accumulator/(10**(multiplier-1));
+            if(multiplier==1)
+            {
+                decicheck=false;
+                decimal.style.backgroundColor = '#338525';
+                decipart=accumulator;
+                let currentstring = display.textContent;
+                let currentStringArray = currentstring.split('');
+                currentStringArray.splice(currentStringArray.length-1,1);
+                display.textContent = currentStringArray.join('');
+            }
+        }
+        else
+        {
+            let currentstring = display.textContent;
+            let currentStringArray = currentstring.split('');
+            currentStringArray.splice(currentStringArray.length-1,1);
+            display.textContent = currentStringArray.join('');
+             accumulator = Math.floor(accumulator/10);
+        }
+    }
+    else if(pressedvar==6&&decicheck==false)
+    {
+        display.textContent += '.';
+        decicheck=true;
+        decimal.style.backgroundColor = 'gray';
+    }
+    else if(pressedvar==7)
+    {
+        display.textContent = -accumulator;
+        accumulator = -accumulator;
+    }
+});
