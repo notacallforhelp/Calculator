@@ -106,6 +106,8 @@ for(let i=7;i<=10;i++)
             "font-weight:bolder;"+
             "text-align:center;"+
             "line-height:10%;");
+        
+        button.setAttribute("class","numbers");
     }
     else
     {
@@ -118,6 +120,8 @@ for(let i=7;i<=10;i++)
             "font-weight:bolder;"+
             "text-align:center;"+
             "line-height:10%;");
+        
+        button.setAttribute("class","operations");
     }
 
     i==10? button.textContent="/":button.textContent=`${i}`;
@@ -141,6 +145,8 @@ for(let i=4;i<=7;i++)
             "font-weight:bolder;"+
             "text-align:center;"+
             "line-height:10%;");
+        
+        button.setAttribute("class","numbers");
     }
     else
     {
@@ -153,6 +159,8 @@ for(let i=4;i<=7;i++)
             "font-weight:bolder;"+
             "text-align:center;"+
             "line-height:10%;");
+        
+        button.setAttribute("class","operations");
     }
 
     i==7? button.textContent="+":button.textContent=`${i}`;
@@ -176,6 +184,8 @@ for(let i=1;i<=4;i++)
             "font-weight:bolder;"+
             "text-align:center;"+
             "line-height:10%;");
+        
+        button.setAttribute("class","numbers");
     }
     else
     {
@@ -188,6 +198,8 @@ for(let i=1;i<=4;i++)
             "font-weight:bolder;"+
             "text-align:center;"+
             "line-height:10%;");
+        
+        button.setAttribute("class","operations");
     }
 
     i==4? button.textContent="-":button.textContent=`${i}`;
@@ -199,7 +211,7 @@ for(let i=0;i<2;i++)
 {
     let div = document.createElement("div");
     div.setAttribute("style","height:100%;width:50%;display:flex;justify-content:space-around;align-items:center;");
-    i==0?div.setAttribute("class","numbers"):div.setAttribute("class","special2");
+    i==0?div.setAttribute("class","zerodiv"):div.setAttribute("class","special2");
     
     row5.appendChild(div);
 }
@@ -217,12 +229,13 @@ for(let i=0;i<2;i++)
         "font-weight:bolder;"+
         "text-align:center;"+
         "line-height:10%;");
+    
 
     i==0? button.textContent=" . ":button.textContent=" = ";
     special2.appendChild(button);
 }
 
-const numbers = document.querySelector(".numbers");
+const zerodiv = document.querySelector(".zerodiv");
 for(let i=0;i<1;i++)
 {
     let button = document.createElement("button");
@@ -236,9 +249,11 @@ for(let i=0;i<1;i++)
         "font-weight:bolder;"+
         "text-align:center;"+
         "line-height:10%;");
+    
+    button.setAttribute("class","numbers");
 
     button.textContent="0";
-    numbers.appendChild(button);
+    zerodiv.appendChild(button);
 }
 
 //creating variables for number1, operator, number2
@@ -266,11 +281,11 @@ function operate(number1,operator,number2)
 // display part
 
 const display = document.querySelector("#display");
-display.textContent="99";
-
 let accumulator = 99;
+display.textContent=accumulator;
 
-// adding AC functionality
+
+// adding AC and C functionality
 
 special.addEventListener('click',(event)=>{
     let target = event.target;
@@ -290,3 +305,18 @@ special.addEventListener('click',(event)=>{
         accumulator = Math.floor(accumulator/10);
     }
 });
+
+
+//adding functionality for all numbers
+
+ctner.addEventListener('click',(event)=>{
+    let target = event.target;
+    if(target.className=='numbers')
+    {
+        let numberHere = +target.textContent;
+        accumulator = accumulator*10 + numberHere;
+        display.textContent = accumulator;
+    }
+});
+
+
