@@ -281,20 +281,20 @@ function operate(number1,operator,number2)
     switch(operator)
     {
         case '+':
-            return number1 + number2;
+            return (number1 + number2).toFixed(2);
             break;
         case '-':
-            return number1 - number2;
+            return (number1 - number2).toFixed(2);
             break;
         case '*':
-            return number1*number2;
+            return (number1*number2).toFixed(2);
             break;
         case '/':
             if(number2==0)
             {
                 return "kys";
             }
-            return number1/number2;
+            return (number1/number2).toFixed(2);
             break;
     }   
 }
@@ -303,8 +303,11 @@ function operate(number1,operator,number2)
 
 const display = document.querySelector("#display");
 let accumulator;
+let decipart;
 display.textContent=accumulator;
 let check=false;
+let decicheck=false;
+let multiplier=1;
 
 
 // adding AC and C functionality
@@ -320,6 +323,9 @@ special.addEventListener('click',(event)=>{
         number2=undefined;
         operator=undefined;
         check=false;
+        decicheck=false;
+        multiplier=1;
+        decipart=0;
     }
 
     if(target.className=='C')
@@ -342,6 +348,13 @@ ctner.addEventListener('click',(event)=>{
         display.textContent = -accumulator;
         accumulator = -accumulator;
     }
+
+    if(target.className=='decimal')
+    {
+        display.textContent += '.';
+        decicheck=true;
+    }
+
     if(target.className=='numbers')
     {
         let numberHere = +target.textContent;
@@ -349,12 +362,33 @@ ctner.addEventListener('click',(event)=>{
         {
             accumulator=0;
         }
-        accumulator = accumulator*10 + numberHere;
-        display.textContent = accumulator;
+        if(decicheck==false)
+        {
+            accumulator = accumulator*10 + numberHere;
+            decipart=accumulator;
+            display.textContent = accumulator;
+        }
+        else
+        {
+            decipart = decipart*10+numberHere;
+            accumulator = decipart/(10**multiplier);
+            ++multiplier;
+            if(numberHere==0)
+            {
+                display.textContent+='0';
+            }
+            else
+            {
+                display.textContent=accumulator;
+            }
+        }
     }
 
     if(target.className=='operations')
     {
+        decicheck=false;
+        multiplier=1;
+        decipart=0;
         if(check==true)
         {
             number1=operate(number1,operator,accumulator);
@@ -377,6 +411,9 @@ ctner.addEventListener('click',(event)=>{
     if(target.className=='equals')
     {
         check=false;
+        decicheck=false;
+        decipart=0;
+        multiplier=1;
         number2 = accumulator;
         //console.log(number1);
         //console.log(number2);
