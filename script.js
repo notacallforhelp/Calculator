@@ -308,7 +308,7 @@ display.textContent=accumulator;
 let check=false;
 let decicheck=false;
 let multiplier=1;
-
+const decimal = document.querySelector(".decimal");
 
 // adding AC and C functionality
 
@@ -326,6 +326,7 @@ special.addEventListener('click',(event)=>{
         decicheck=false;
         multiplier=1;
         decipart=0;
+        decimal.style.backgroundColor = '#338525';
     }
 
     if(target.className=='C')
@@ -337,7 +338,7 @@ special.addEventListener('click',(event)=>{
             currentStringArray.splice(currentStringArray.length-1,1);
             display.textContent = currentStringArray.join('');
             --multiplier;
-            console.log(multiplier);
+            //console.log(multiplier);
             //accumulator = accumulator.toFixed(multiplier-1);
             accumulator=accumulator*(10**multiplier);
             accumulator=Math.floor(accumulator/10);
@@ -345,6 +346,7 @@ special.addEventListener('click',(event)=>{
             if(multiplier==1)
             {
                 decicheck=false;
+                decimal.style.backgroundColor = '#338525';
                 decipart=accumulator;
                 let currentstring = display.textContent;
                 let currentStringArray = currentstring.split('');
@@ -364,6 +366,7 @@ special.addEventListener('click',(event)=>{
 });
 
 
+
 //adding functionality for all numbers
 
 ctner.addEventListener('click',(event)=>{
@@ -374,10 +377,11 @@ ctner.addEventListener('click',(event)=>{
         accumulator = -accumulator;
     }
 
-    if(target.className=='decimal')
+    if(target.className=='decimal'&&decicheck==false)
     {
         display.textContent += '.';
         decicheck=true;
+        decimal.style.backgroundColor = 'gray';
     }
 
     if(target.className=='numbers')
@@ -414,6 +418,7 @@ ctner.addEventListener('click',(event)=>{
         decicheck=false;
         multiplier=1;
         decipart=0;
+        decimal.style.backgroundColor = '#338525';
         if(check==true)
         {
             number1=operate(number1,operator,accumulator);
@@ -422,7 +427,6 @@ ctner.addEventListener('click',(event)=>{
             {
                 number1=0;
             }
-            //console.log(number1);
         }
         else{
             check = true;
@@ -440,9 +444,7 @@ ctner.addEventListener('click',(event)=>{
         decipart=0;
         multiplier=1;
         number2 = accumulator;
-        //console.log(number1);
-        //console.log(number2);
-        //console.log(operator);
+        decimal.style.backgroundColor = '#338525';
         if(number1!=undefined&&number2!=undefined&&operator!=undefined)
         {
             accumulator = operate(number1,operator,number2);
@@ -451,6 +453,8 @@ ctner.addEventListener('click',(event)=>{
             {
                 check=false;
                 accumulator=0;
+                decicheck=false;
+                multiplier=1;
                 number1=0;
                 number2=0;
                 operator=0;
