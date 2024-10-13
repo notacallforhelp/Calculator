@@ -84,8 +84,13 @@ for(let i=0;i<2;i++)
         "font-weight:bolder;"+
         "text-align:center;"+
         "line-height:10%;");
-    
-    button.setAttribute("class","operations");
+    if(i==1)
+    {
+        button.setAttribute("class","operations");
+    }
+    else{
+        button.setAttribute("class","plusminus");
+    }
 
     i==0? button.textContent="+/-":button.textContent="*";
     operationsdiv.appendChild(button);
@@ -279,10 +284,13 @@ function operate(number1,operator,number2)
             break;
         case '-':
             return number1 - number2;
+            break;
         case '*':
             return number1*number2;
+            break;
         case '/':
             return number1/number2;
+            break;
     }   
 }
 
@@ -319,6 +327,11 @@ special.addEventListener('click',(event)=>{
 
 ctner.addEventListener('click',(event)=>{
     let target = event.target;
+    if(target.className=='plusminus')
+    {
+        display.textContent = -accumulator;
+        accumulator = -accumulator;
+    }
     if(target.className=='numbers')
     {
         let numberHere = +target.textContent;
