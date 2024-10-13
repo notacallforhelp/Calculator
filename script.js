@@ -435,6 +435,19 @@ ctner.addEventListener('click',(event)=>{
                 multiplier=1;
                 decimal.style.backgroundColor = '#338525';
             }
+            else if(accumulator!=Math.floor(accumulator))
+            {
+                decicheck=true;
+                decipart=accumulator;
+                if(accumulator*10==Math.floor(accumulator*10))
+                {
+                    multiplier=2;
+                }
+                else{
+                    multiplier=3;
+                }
+                decimal.style.backgroundColor="gray";
+            }
             display.textContent=accumulator;
             if(accumulator=="kys")
             {
@@ -563,6 +576,19 @@ body.addEventListener('keydown',(event)=>{
                 decipart=0;
                 multiplier=1;
                 decimal.style.backgroundColor = '#338525';
+            }
+            else if(accumulator!=Math.floor(accumulator))
+            {
+                decicheck=true;
+                decipart=accumulator;
+                if(accumulator*10==Math.floor(accumulator*10))
+                {
+                    multiplier=2;
+                }
+                else{
+                    multiplier=3;
+                }
+                decimal.style.backgroundColor="gray";
             }
             if(accumulator=="kys")
             {
