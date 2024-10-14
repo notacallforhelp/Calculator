@@ -407,7 +407,7 @@ ctner.addEventListener('click',(event)=>{
         else
         {
             let placeholder = Math.abs(accumulator);
-            if(Math.floor(placeholder)==placeholder)
+            if(Math.floor(placeholder)==placeholder&&decicheck==false)
             {
                 decipart=placeholder;
             }
@@ -569,7 +569,7 @@ body.addEventListener('keydown',(event)=>{
         else
         {
             let placeholder = Math.abs(accumulator);
-            if(Math.floor(placeholder)==placeholder)
+            if(Math.floor(placeholder)==placeholder&&decicheck==false)
             {
                 decipart=placeholder;
             }
