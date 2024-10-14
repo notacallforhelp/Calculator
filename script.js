@@ -465,10 +465,10 @@ ctner.addEventListener('click',(event)=>{
         number2 = accumulator;
         if(number1!=undefined&&number2!=undefined&&operator!=undefined)
         {
-            equalscheck=true;
             accumulator = operate(number1,operator,number2);
             if(accumulator==Math.floor(accumulator))
             {
+                equalscheck=true;
                 decicheck=false;
                 decipart=0;
                 multiplier=1;
@@ -627,12 +627,12 @@ body.addEventListener('keydown',(event)=>{
         number2 = accumulator;
         if(number1!=undefined&&number2!=undefined&&operator!=undefined)
         {
-            equalscheck=true;
             accumulator = operate(number1,operator,number2);
             display.textContent=accumulator;
             operator=undefined;
             if(accumulator==Math.floor(accumulator))
             {
+                equalscheck=true;
                 decicheck=false;
                 decipart=0;
                 multiplier=1;
