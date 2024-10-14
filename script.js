@@ -324,9 +324,19 @@ special.addEventListener('click',(event)=>{
             --multiplier;
             //console.log(multiplier);
             //accumulator = accumulator.toFixed(multiplier-1);
-            accumulator=accumulator*(10**multiplier);
-            accumulator=Math.floor(accumulator/10);
-            accumulator=accumulator/(10**(multiplier-1));
+            let placeholder = Math.abs(accumulator);
+            placeholder=placeholder*(10**multiplier);
+            placeholder=Math.floor(placeholder/10);
+            decipart=placeholder;
+            placeholder=placeholder/(10**(multiplier-1));
+            if(accumulator<0)
+            {
+                accumulator = -1*placeholder;
+            }
+            else
+            {
+                accumulator = placeholder;
+            }
             if(multiplier==1)
             {
                 decicheck=false;
@@ -344,7 +354,16 @@ special.addEventListener('click',(event)=>{
             let currentStringArray = currentstring.split('');
             currentStringArray.splice(currentStringArray.length-1,1);
             display.textContent = currentStringArray.join('');
-            accumulator = Math.floor(accumulator/10);
+            let placeholder=Math.abs(accumulator);
+            placeholder = Math.floor(placeholder/10);
+            if(accumulator<0)
+            {
+                accumulator = -1*placeholder;
+            }
+            else
+            {
+                accumulator = placeholder;
+            }
         }
     }
 });
@@ -664,9 +683,19 @@ body.addEventListener('keydown',(event)=>{
             --multiplier;
             //console.log(multiplier);
             //accumulator = accumulator.toFixed(multiplier-1);
-            accumulator=accumulator*(10**multiplier);
-            accumulator=Math.floor(accumulator/10);
-            accumulator=accumulator/(10**(multiplier-1));
+            let placeholder = Math.abs(accumulator);
+            placeholder=placeholder*(10**multiplier);
+            placeholder=Math.floor(placeholder/10);
+            decipart=placeholder;
+            placeholder=placeholder/(10**(multiplier-1));
+            if(accumulator<0)
+            {
+                accumulator = -1*placeholder;
+            }
+            else
+            {
+                accumulator = placeholder;
+            }
             if(multiplier==1)
             {
                 decicheck=false;
@@ -684,7 +713,16 @@ body.addEventListener('keydown',(event)=>{
             let currentStringArray = currentstring.split('');
             currentStringArray.splice(currentStringArray.length-1,1);
             display.textContent = currentStringArray.join('');
-             accumulator = Math.floor(accumulator/10);
+            let placeholder=Math.abs(accumulator);
+            placeholder = Math.floor(placeholder/10);
+            if(accumulator<0)
+            {
+                accumulator = -1*placeholder;
+            }
+            else
+            {
+                accumulator = placeholder;
+            }
         }
     }
     else if(pressedvar==6&&decicheck==false)
