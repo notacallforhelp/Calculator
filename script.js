@@ -292,6 +292,7 @@ display.textContent=accumulator;
 let check=false;
 let decicheck=false;
 let multiplier=1;
+let equalscheck=false;
 const decimal = document.querySelector(".decimal");
 
 // adding AC and C functionality
@@ -407,9 +408,10 @@ ctner.addEventListener('click',(event)=>{
         else
         {
             let placeholder = Math.abs(accumulator);
-            if(Math.floor(placeholder)==placeholder&&decicheck==false)
+            if((Math.floor(placeholder)==placeholder&&decicheck==false)||equalscheck==true)
             {
                 decipart=placeholder;
+                equalscheck=false;
             }
             decipart = decipart*10+numberHere;
             placeholder = decipart/(10**multiplier);
@@ -463,6 +465,7 @@ ctner.addEventListener('click',(event)=>{
         number2 = accumulator;
         if(number1!=undefined&&number2!=undefined&&operator!=undefined)
         {
+            equalscheck=true;
             accumulator = operate(number1,operator,number2);
             if(accumulator==Math.floor(accumulator))
             {
@@ -569,9 +572,10 @@ body.addEventListener('keydown',(event)=>{
         else
         {
             let placeholder = Math.abs(accumulator);
-            if(Math.floor(placeholder)==placeholder&&decicheck==false)
+            if((Math.floor(placeholder)==placeholder&&decicheck==false)||equalscheck==true)
             {
                 decipart=placeholder;
+                equalscheck=false;
             }
             decipart = decipart*10+numberHere;
             placeholder = decipart/(10**multiplier);
@@ -623,6 +627,7 @@ body.addEventListener('keydown',(event)=>{
         number2 = accumulator;
         if(number1!=undefined&&number2!=undefined&&operator!=undefined)
         {
+            equalscheck=true;
             accumulator = operate(number1,operator,number2);
             display.textContent=accumulator;
             operator=undefined;
