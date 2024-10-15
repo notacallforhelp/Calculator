@@ -79,6 +79,7 @@ h2{
     background-color: #1e1c1f;
     align-items: center;
     justify-content: center;
+    border-radius: 12px;
 }
 
 #display{
@@ -92,6 +93,7 @@ h2{
     justify-content: flex-end;
     font-size: 64px;
     font-family: "DM Sans", sans-serif;
+    border-radius: 12px;
 }
 
 

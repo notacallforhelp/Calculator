@@ -539,10 +539,12 @@ body.addEventListener('keydown',(event)=>{
         case 'Enter':
             pressedvar=3;
             break;
-        case 'x':     //adding support for AC
+        case 'x': 
+        case 'Delete':    //adding support for AC
             pressedvar=4;
             break;
         case 'c':       //adding support for C
+        case 'Backspace':
             pressedvar=5;
             break;
         case '.':
