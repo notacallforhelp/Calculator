@@ -485,7 +485,7 @@ ctner.addEventListener('click',(event)=>{
                 else{
                     multiplier=3;
                 }
-                decipart=accumulator*(10**(multiplier-1));
+                decipart=Math.abs(accumulator*(10**(multiplier-1)));
                 decimal.style.backgroundColor="gray";
             }
             operator=undefined;
@@ -649,7 +649,7 @@ body.addEventListener('keydown',(event)=>{
                 else{
                     multiplier=3;
                 }
-                decipart=accumulator*(10**(multiplier-1));
+                decipart=Math.abs(accumulator*(10**(multiplier-1)));
                 decimal.style.backgroundColor="gray";
             }
             if(accumulator=="kys")
